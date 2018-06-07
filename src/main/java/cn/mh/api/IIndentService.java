@@ -104,5 +104,12 @@ public interface IIndentService {
      */
     ServiceResult message(String goodsId,String userId,String msg);
 
+    /**
+     * 123
+     * @param pageNum
+     * @param pageSize
+     * @param storeId
+     * @return
+     */
     ServiceResult myMessage(int pageNum,int pageSize,String storeId);
 }
