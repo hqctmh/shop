@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 数据库驱动 -->
+    <classPathEntry location="D:\java\maven\repository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar"/>
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!--数据库链接URL，用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1/shop?useSSL=false"
+                        userId="root" password="root"/>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- 生成模型的包名和位置 -->
+        <javaModelGenerator targetPackage="cn.mh.entity" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 生成映射文件的包名和位置 -->
+        <sqlMapGenerator targetPackage="cn.mh.persist.mapping" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 生成MAPPER的包名和位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.mh.persist.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 要生成哪些表 -->
+
+        <!--<table tableName="address" domainObjectName="Address" enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>-->
+        <!--<table tableName="city" domainObjectName="City" enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>-->
+        <!--<table tableName="goods" domainObjectName="Goods" enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>-->
+        <!--<table tableName="item" domainObjectName="Item" enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>-->
+        <table tableName="message" domainObjectName="Message" enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>
+        <!--<table tableName="picture" domainObjectName="Picture" enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>-->
+        <!--<table tableName="province" domainObjectName="Province" enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>-->
+        <!--<table tableName="returndetail" domainObjectName="ReturnDetail" enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>-->
+        <!--<table tableName="returnmain" domainObjectName="ReturnMain" enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>-->
+        <!--&lt;!&ndash;<table tableName="shopcar" domainObjectName="ShopCar" enableCountByExample="true" enableUpdateByExample="true"&ndash;&gt;-->
+               <!--&lt;!&ndash;enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>&ndash;&gt;-->
+        <!--<table tableName="store" domainObjectName="Store" enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>-->
+        <!--<table tableName="storeshelves" domainObjectName="StoreShelves" enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>-->
+        <!--<table tableName="user" domainObjectName="User" enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>-->
+        <!--<table tableName="indent" domainObjectName="Indent" enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>-->
+        <!--<table tableName="indentdetail" domainObjectName="IndentDetail" enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>-->
+        <!--<table tableName="storeindent" domainObjectName="StoreIndent" enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>-->
+        <!--<table tableName="statistics" domainObjectName="Statistics" enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>-->
+
+        <!--<table tableName="storeapply" domainObjectName="StoreApply" enableCountByExample="true" enableUpdateByExample="true"-->
+            <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>-->
+        <!--<table tableName="indentview" domainObjectName="IndentView" enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>-->
+        <!--<table tableName="returnview" domainObjectName="ReturnView" enableCountByExample="true"-->
+               <!--enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true" />-->
+    </context>
+</generatorConfiguration>
