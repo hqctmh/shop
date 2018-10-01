@@ -47,6 +47,8 @@ public class MemberController extends AbstractController {
     @Autowired
     private IIndentService iIndentService;
     @Autowired
+    private IStoreApplyService iStoreApplyService;
+    @Autowired
     private HttpSession session;
     @Autowired
     private HttpServletRequest request;
@@ -58,6 +60,8 @@ public class MemberController extends AbstractController {
     public String myIndex(Model model) {
         model.addAttribute("active", "my_index");
         itemList(model, iItemService);
+        ServiceResult rs=iUserService.findUserById(super.getUserId(session));
+        session.setAttribute("user",JSON.parseObject(JSON.toJSONString(rs.getObject("result")),User.class));
         return "front/member/my_index";
     }
 
@@ -349,6 +353,7 @@ public class MemberController extends AbstractController {
 
     @RequestMapping("myAllOrder")
     public String myAllOrder(Model model, String type) {
+        itemList(model, iItemService);
         model.addAttribute("active", "my_order");
         model.addAttribute("orderActive", type);
         String status = null;
@@ -458,6 +463,7 @@ public class MemberController extends AbstractController {
 
     @RequestMapping("findMyReturn")
     public String findMyReturn(Model model, String type) {
+        itemList(model, iItemService);
         model.addAttribute("active", "my_return_order");
         model.addAttribute("orderActive", type);
         String userId = "";
@@ -567,6 +573,7 @@ public class MemberController extends AbstractController {
     }
     @RequestMapping("myStatistics")
     public String myStatistics(Model model){
+        itemList(model, iItemService);
         model.addAttribute("active", "statistics");
         ServiceResult rs=iIndentService.statisticsSell(getStoreId(session));
         if(rs.succeed()){
@@ -581,6 +588,7 @@ public class MemberController extends AbstractController {
     @ResponseBody
     @RequestMapping("message")
     public String message(String goodsId,String msg){
+
         ServiceResult result=iIndentService.message(goodsId,super.getUserId(session),msg) ;
         if(result.succeed()){
             return "true";
@@ -589,6 +597,7 @@ public class MemberController extends AbstractController {
     }
     @RequestMapping("myMessage")
     public String myMessage(Model model){
+        itemList(model, iItemService);
         ServiceResult result=iIndentService.myMessage(1,14,super.getStoreId(session));
         if(result.succeed()){
             model.addAttribute("count",result.getRecordCount());
@@ -605,9 +614,36 @@ public class MemberController extends AbstractController {
         }
         return JSON.toJSONString(result.getObject("result"));
     }
-    @RequestMapping("registStore")
-    public String registStore(){
+    @RequestMapping("registStorePro")
+    public String registStorePro(Model model){
+        itemList(model, iItemService);
+        model.addAttribute("active","registStorePro");
         return "front/member/regist_store";
+    }
+
+    @RequestMapping("registStore")
+    public String registStore(String storeName,Model model){
+
+        ServiceResult rs=iStoreApplyService.addStoreApply(super.getUserId(session),storeName);
+        if (rs.succeed()) {
+            model.addAttribute("msg", "申请成功！");
+            model.addAttribute("url", "/pages/front/member/myApply");
+        } else {
+            model.addAttribute("msg", "申请失败！");
+            model.addAttribute("url", "");
+        }
+        return "forward";
+    }
+
+    @RequestMapping("myApply")
+    public String myApply(Model model){
+        itemList(model, iItemService);
+        model.addAttribute("active","myApply");
+        ServiceResult rs=iStoreApplyService.findApply(super.getUserId(session),"");
+        if (rs.succeed()) {
+           model.addAttribute("applyList",rs.getObject("result"));
+        }
+        return "front/member/my_Apply";
     }
 
 

@@ -22,6 +22,7 @@
     <script type="text/javascript" src="resources/bootstrap/js/bootstrap.js"></script>
     <link rel="stylesheet" href="resources/layui/css/layui.css">
     <script src="resources/layui/layui.js"></script>
+    <script src="resources/js/hmJs.js"></script>
     <script>
         function Trim(str)
         {

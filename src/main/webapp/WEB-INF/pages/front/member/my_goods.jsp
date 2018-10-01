@@ -22,6 +22,7 @@
     <script type="text/javascript" src="resources/bootstrap/js/bootstrap.js"></script>
     <link rel="stylesheet" href="resources/layui/css/layui.css">
     <script src="resources/layui/layui.js"></script>
+    <script src="resources/js/hmJs.js"></script>
     <script>
         function Trim(str)
         {
@@ -133,18 +134,26 @@
         </div>
 
         <c:if test="${user.userType==0}">
-            <a class="${active=="my_index"?"actives":""}" href="<%=basePath%>pages/front/member/myIndex"><img src="<%=basePath%>/resources/images/icon2.png"> 我的信息</a>
+            <a class="${active=="my_index"?"actives":""}" href="<%=basePath%>pages/front/member/myIndex"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 我的信息</a>
             <a class="${active=="my_order"?"actives":""}" href="<%=basePath%>pages/front/member/myAllOrder?type=myAllOrder"><img
                     src="<%=basePath%>/resources/images/icon2.png"> 我的订单</a>
             <a class="${active=="my_return_order"?"actives":""}" href="<%=basePath%>pages/front/member/findMyReturn?type=all_return"><img src="<%=basePath%>/resources/images/icon2.png"> 我的退货记录</a>
-            <a class="${active=="my_index"?"actives":""}" href="my_index.html"><img src="<%=basePath%>/resources/images/icon2.png"> 我的收货地址</a>
+            <a class="${active=="my_address"?"actives":""}" href="<%=basePath%>pages/front/member/myAddress"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 我的收货地址</a>
+            <a class="${active=="registStorePro"?"actives":""}" href="<%=basePath%>pages/front/member/registStorePro"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 申请店铺</a>
+            <a class="${active=="myApply"?"actives":""}" href="<%=basePath%>pages/front/member/myApply"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 我的申请</a>
         </c:if>
         <c:if test="${user.userType==1}">
-            <a href="<%=basePath%>pages/front/member/myIndex"><img src="<%=basePath%>/resources/images/icon2.png"> 我的信息</a>
-            <a href="my_smallstore.html"><img src="<%=basePath%>/resources/images/icon3.png"> 我的微店</a>
-            <a class="${active=="my_order"?"actives":""}" href="href=<%=basePath%>pages/front/member/myAllOrder?type=myAllOrder"><img src="<%=basePath%>/resources/images/icon3.png"> 我的订单</a>
+            <a class="${active=="my_index"?"actives":""}" href="<%=basePath%>pages/front/member/myIndex"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 我的信息</a>
+            <a class="${active=="my_order"?"actives":""}" href="<%=basePath%>pages/front/member/myAllOrder?type=myAllOrder"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 我的订单</a>
             <a class="${active=="my_return_order"?"actives":""}" href="<%=basePath%>pages/front/member/findMyReturn?type=all_return"><img src="<%=basePath%>/resources/images/icon2.png"> 我的退货记录</a>
-            <a class="${active=="add_goods"?"actives":""}" href="<%=basePath%>pages/front/member/addGoodsPro"><img src="<%=basePath%>/resources/images/icon3.png"> 添加商品</a>
+            <a class="${active=="add_goods"?"actives":""}" href="<%=basePath%>pages/front/member/addGoodsPro"><img
+                    src="<%=basePath%>/resources/images/icon3.png"> 添加商品</a>
             <a class="${active=="my_goods"?"actives":""}" href="<%=basePath%>pages/front/member/myGoods"><img src="<%=basePath%>/resources/images/icon3.png"> 我的商品</a>
             <a class="${active=="statistics"?"actives":""}" href="<%=basePath%>pages/front/member/myStatistics"><img src="<%=basePath%>/resources/images/icon3.png"> 统计</a>
         </c:if>

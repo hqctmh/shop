@@ -15,7 +15,6 @@
                 <!--register_user.html-->
             </ul>
             <ul class="rf">
-                <a href="wodediingdan.html">我的订单 <i class="iconfont"></i></a><span class="line">|</span>
                 <a href="${basePath}pages/front/member/myIndex">我的信息 <i class="iconfont"></i></a><span class="line">|</span>
                 <a href="${basePath}pages/front/member/myShopCar">购物车 <i class="iconcar"></i></a>
             </ul>

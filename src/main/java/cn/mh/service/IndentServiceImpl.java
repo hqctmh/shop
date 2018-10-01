@@ -574,18 +574,38 @@ public class IndentServiceImpl extends BaseService implements IIndentService {
         ServiceResult result=new ServiceResult();
         try{
             List<Statistics> list=statisticsDao.findAllStatistics(storeId);
+            if(list==null){
+                list=new ArrayList<>();
+            }
             List<StatisticsModel> modelList=new ArrayList<>();
             BigDecimal price=new BigDecimal(0);
             StatisticsModel model=null;
-            for(int i=0;i<list.size();i++){
-                if(i<5){
-                    Goods goods=goodsDao.findGoodsById(list.get(i).getId());
-                    model=new StatisticsModel();
-                    model.setName(goods.getGoodsName());
-                    model.setPrice(list.get(i).getPrice());
-                    modelList.add(model);
-                }else{
-                    price=price.add(list.get(i).getPrice());
+            if(list.size()>5) {
+                for (int i = 0; i < list.size(); i++) {
+                    if (i < 5) {
+                        Goods goods = goodsDao.findGoodsById(list.get(i).getId());
+                        model = new StatisticsModel();
+                        model.setName(goods.getGoodsName());
+                        model.setPrice(list.get(i).getPrice());
+                        modelList.add(model);
+                    } else {
+                        price = price.add(list.get(i).getPrice());
+                    }
+                }
+            }else{
+                for (int i = 0; i < 5; i++) {
+                    if (i < list.size()) {
+                        Goods goods = goodsDao.findGoodsById(list.get(i).getId());
+                        model = new StatisticsModel();
+                        model.setName(goods.getGoodsName());
+                        model.setPrice(list.get(i).getPrice());
+                        modelList.add(model);
+                    } else {
+                        model = new StatisticsModel();
+                        model.setName("");
+                        model.setPrice(new BigDecimal(0));
+                        modelList.add(model);
+                    }
                 }
             }
             model=new StatisticsModel();
@@ -598,6 +618,7 @@ public class IndentServiceImpl extends BaseService implements IIndentService {
             result.setException(e);
             this.rollback();
         }
+
         return result;
     }
 
@@ -645,6 +666,31 @@ public class IndentServiceImpl extends BaseService implements IIndentService {
                     result.setAttribute("result",modelList);
                     result.setSucceed();
                 }
+            }
+        }catch (Exception e){
+            result.setException(e);
+            this.rollback();
+        }
+        return result;
+    }
+
+    @Override
+    public ServiceResult findGoodsMessage(String goodsId) {
+        ServiceResult result=new ServiceResult();
+        try{
+            List<Message> list=messageDao.findMessageByLimit("","",goodsId);
+            List<GoodsMessageModel> modelList=new ArrayList<>();
+            if(list!=null&&list.size()>0){
+                for(Message message:list){
+                    User user=userDao.findUserById(message.getUserId());
+                    GoodsMessageModel goodsMessageModel=new GoodsMessageModel();
+                    goodsMessageModel.setMessage(message.getContent());
+                    goodsMessageModel.setPic(user.getPic());
+                    goodsMessageModel.setUserName(user.getName());
+                    modelList.add(goodsMessageModel);
+                }
+                result.setAttribute("result",modelList);
+                result.setSucceed();
             }
         }catch (Exception e){
             result.setException(e);

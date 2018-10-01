@@ -139,7 +139,8 @@ public abstract class AbstractController {
         return ((Store)session.getAttribute("store")).getId();
     }
 
-    public static void itemList(Model model, IItemService iItemService){
+    public static void
+    itemList(Model model, IItemService iItemService){
         ServiceResult rs=iItemService.findByLimit("","");
         if(rs.succeed()){
             List<Item> list=rs.getList("result",Item.class);
@@ -157,4 +158,6 @@ public abstract class AbstractController {
             model.addAttribute("subItemMap",subItemMap);
         }
     }
+
+
 }

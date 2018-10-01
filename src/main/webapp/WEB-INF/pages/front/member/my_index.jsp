@@ -20,6 +20,7 @@
     <link href="resources/css/mycss.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="resources/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="resources/bootstrap/js/bootstrap.js"></script>
+    <script src="resources/js/hmJs.js"></script>
     <script>
         $(document).ready(function (e) {
             $('.topbtn').click(function () {
@@ -62,18 +63,26 @@
         </div>
 
         <c:if test="${user.userType==0}">
-            <a class="${active=="my_index"?"actives":""}" href="<%=basePath%>pages/front/member/myIndex"><img src="<%=basePath%>/resources/images/icon2.png"> 我的信息</a>
+            <a class="${active=="my_index"?"actives":""}" href="<%=basePath%>pages/front/member/myIndex"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 我的信息</a>
             <a class="${active=="my_order"?"actives":""}" href="<%=basePath%>pages/front/member/myAllOrder?type=myAllOrder"><img
                     src="<%=basePath%>/resources/images/icon2.png"> 我的订单</a>
             <a class="${active=="my_return_order"?"actives":""}" href="<%=basePath%>pages/front/member/findMyReturn?type=all_return"><img src="<%=basePath%>/resources/images/icon2.png"> 我的退货记录</a>
-            <a class="${active=="my_address"?"actives":""}" href="<%=basePath%>pages/front/member/myAddress"><img src="<%=basePath%>/resources/images/icon2.png"> 我的收货地址</a>
+            <a class="${active=="my_address"?"actives":""}" href="<%=basePath%>pages/front/member/myAddress"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 我的收货地址</a>
+            <a class="${active=="registStorePro"?"actives":""}" href="<%=basePath%>pages/front/member/registStorePro"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 申请店铺</a>
+            <a class="${active=="myApply"?"actives":""}" href="<%=basePath%>pages/front/member/myApply"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 我的申请</a>
         </c:if>
         <c:if test="${user.userType==1}">
-            <a class="${active=="my_index"?"actives":""}" href="<%=basePath%>pages/front/member/myIndex"><img src="<%=basePath%>/resources/images/icon2.png"> 我的信息</a>
-            <a href="my_smallstore.html"><img src="<%=basePath%>/resources/images/icon3.png"> 我的微店</a>
-            <a class="${active=="my_order"?"actives":""}" href="<%=basePath%>pages/front/member/myAllOrder?type=myAllOrder"><img src="<%=basePath%>/resources/images/icon3.png"> 我的订单</a>
+            <a class="${active=="my_index"?"actives":""}" href="<%=basePath%>pages/front/member/myIndex"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 我的信息</a>
+            <a class="${active=="my_order"?"actives":""}" href="<%=basePath%>pages/front/member/myAllOrder?type=myAllOrder"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 我的订单</a>
             <a class="${active=="my_return_order"?"actives":""}" href="<%=basePath%>pages/front/member/findMyReturn?type=all_return"><img src="<%=basePath%>/resources/images/icon2.png"> 我的退货记录</a>
-            <a class="${active=="add_goods"?"actives":""}" href="<%=basePath%>pages/front/member/addGoodsPro"><img src="<%=basePath%>/resources/images/icon3.png"> 添加商品</a>
+            <a class="${active=="add_goods"?"actives":""}" href="<%=basePath%>pages/front/member/addGoodsPro"><img
+                    src="<%=basePath%>/resources/images/icon3.png"> 添加商品</a>
             <a class="${active=="my_goods"?"actives":""}" href="<%=basePath%>pages/front/member/myGoods"><img src="<%=basePath%>/resources/images/icon3.png"> 我的商品</a>
             <a class="${active=="statistics"?"actives":""}" href="<%=basePath%>pages/front/member/myStatistics"><img src="<%=basePath%>/resources/images/icon3.png"> 统计</a>
         </c:if>
@@ -85,127 +94,30 @@
                 <li class="lihover">基本信息</li>
                 <div class="clr"></div>
             </div>
+        <c:if test="${user.userType==0}">
             <div class="my_infobox">
                 <ul class="lf ulinfo">
-                    <li>姓名：${user.name} </li>
+                    <li>用户名：${user.name} </li>
                     <li>账户余额：<i class="color04">${user.balance}元</i></li>
                     <div class="clr"></div>
                 </ul>
 
                 <div class="clr"></div>
             </div>
-        </div>
-        <div class="rfcon_tit title">
-            <li class="lihover">个人资料</li>
-            <i class="lf">|</i>
-            <li>完善资料</li>
-            <div class="clr"></div>
-        </div>
-        <div class="my_info">
-            <div class="infor">
-                <div class="mg_top_1">
-                    <label class="lf">姓名：</label>
-                    <p class="lf"><input class="text_input" type="text" value=""></p>
-                    <div class="clr"></div>
-                </div>
-                <div class="mg_top_1">
-                    <label class="lf">手机号码：</label>
-                    <p class="lf"><input class="text_input" type="text" value=""></p>
-                    <div class="clr"></div>
-                </div>
-                <div class="mg_top_1">
-                    <label class="lf">生日：</label>
-                    <p class="lf"><input class="text_input" type="text" value=""></p>
-                    <div class="clr"></div>
-                </div>
-                <div class="mg_top_1">
-                    <label class="lf">性别：</label>
-                    <p class="lf"><input class="text_input" type="text" value=""></p>
-                    <div class="clr"></div>
-                </div>
-                <div><input class="btnClass" type="button" value="确认修改"></div>
-                <div class="update-headimg">
-                    <div class="file"><img src="<%=basePath%>/resources/images/headimg.png"><input class="fileint"
-                                                                                                   type="file"></div>
-                    <input class="btnClass" type="button" value="修改头像">
-                </div>
-            </div>
+        </c:if>
+            <c:if test="${user.userType==1}">
+                <div class="my_infobox">
+                    <ul class="lf ulinfo">
+                        <li>店铺名：${store.storeName} </li>
+                        <li>店铺余额：<i class="color04">${store.balance}元</i></li>
+                        <div class="clr"></div>
+                    </ul>
 
-            <div class="infor renzheng" style="display:none;">
-                <li>
-                    <div class="mg_top_1">
-                        <label class="lf">姓名：</label>
-                        <p class="lf"><input class="text_input" type="text" value=""></p>
-                        <div class="clr"></div>
-                    </div>
-                    <div class="mg_top_1">
-                        <label class="lf">手机号码：</label>
-                        <p class="lf"><input class="text_input" type="text" value=""></p>
-                        <div class="clr"></div>
-                    </div>
-                    <div class="mg_top_1">
-                        <label class="lf">生日：</label>
-                        <p class="lf"><input class="text_input" type="text" value=""></p>
-                        <div class="clr"></div>
-                    </div>
-                    <div class="mg_top_1">
-                        <label class="lf">性别：</label>
-                        <p class="lf"><input class="text_input" type="text" value=""></p>
-                        <div class="clr"></div>
-                    </div>
-                    <div class="mg_top_1">
-                        <label class="lf">年龄：</label>
-                        <p class="lf"><input class="text_input" type="text" value=""></p>
-                        <div class="clr"></div>
-                    </div>
-                    <div class="mg_top_1">
-                        <label class="lf">微信名称：</label>
-                        <p class="lf"><input class="text_input" type="text" value=""></p>
-                        <div class="clr"></div>
-                    </div>
-                    <div class="mg_top_1">
-                        <label class="lf">QQ号码：</label>
-                        <p class="lf"><input class="text_input" type="text" value=""></p>
-                        <div class="clr"></div>
-                    </div>
-                </li>
-                <li>
-                    <div class="mg_top_1">
-                        <label class="lf">广告机账号：</label>
-                        <p class="lf"><input class="text_input" type="text" value=""></p>
-                        <div class="clr"></div>
-                    </div>
-                    <div class="mg_top_1">
-                        <label class="lf">收款机账号类型：</label>
-                        <p class="lf"><input class="text_input" type="text" value=""></p>
-                        <div class="clr"></div>
-                    </div>
-                    <div class="mg_top_1">
-                        <label class="lf">收款账户：</label>
-                        <p class="lf"><input class="text_input" type="text" value=""></p>
-                        <div class="clr"></div>
-                    </div>
-                    <div class="mg_top_1">
-                        <label class="lf">地址：</label>
-                        <p class="lf"><input class="text_input" type="text" value=""></p>
-                        <div class="clr"></div>
-                    </div>
-                    <div class="mg_top_1">
-                        <label class="lf">备注：</label>
-                        <p class="lf"><textarea class="text_input area_input"></textarea></p>
-                        <div class="clr"></div>
-                    </div>
-
-                    <div class="mg_top_1">
-                        <label class="lf">归属门店：</label>
-                        <p class="lf"><input class="text_input" type="text" value=""></p>
-                        <div class="clr"></div>
-                    </div>
-                </li>
-                <div class="clr"></div>
-                <input class="btnClass" type="button" value="确认修改">
-            </div>
+                    <div class="clr"></div>
+                </div>
+            </c:if>
         </div>
+
     </div>
     <div class="clr"></div>
 </div>

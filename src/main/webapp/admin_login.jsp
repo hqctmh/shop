@@ -6,7 +6,7 @@
     String basePath = request.getScheme() + "://"
             + request.getServerName() + ":" + request.getServerPort()
             + path + "/";
-    String loginUrl=basePath+"pages/back/admin/login";
+    String loginUrl=basePath+"adminLogin";
 %>
 <!DOCTYPE html>
 
@@ -41,14 +41,14 @@
     <form action="<%=loginUrl%>" method="post">
         <div class="form-group">
             <label for="exampleInputEmail1">用户名</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入用户名" name="phone">
+            <input autocomplete="off" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入用户名" name="phone">
 
         </div>
         <div class="form-group" id="div1">
             <label for="exampleInputPassword1">密码</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码" name="password">
+            <input autocomplete="off" type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码" name="password">
         </div>
-        <input type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#Modal1" id="btn_sub">登录</input>
+        <input type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#Modal1" id="btn_sub" value="登录">
     </form>
 
 </div>

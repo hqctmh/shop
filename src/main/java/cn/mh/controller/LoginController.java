@@ -48,6 +48,7 @@ public class LoginController extends AbstractController {
         user.setPic(this.createSingleFileName(photo));
         this.saveUploadFile(photo,request,user.getPic());
         ServiceResult result = iUserService.registUser(user);
+
         if (result.succeed()) {
             model.addAttribute("msg", "注册成功！");
             model.addAttribute("url", "/");
@@ -74,12 +75,33 @@ public class LoginController extends AbstractController {
                     return "forward";
                 }
             }
-            session.setAttribute("user", user1);
-            model.addAttribute("msg", "登录成功！");
-            model.addAttribute("url", "/");
+            if(StringUtil.equals("1",user1.getStatus())){
+                model.addAttribute("msg", "用户已经被锁定，请联系管理员进行解锁！");
+                model.addAttribute("url", "/login.jsp");
+            }else{
+                session.setAttribute("user", user1);
+                model.addAttribute("msg", "登录成功！");
+                model.addAttribute("url", "/");
+            }
+
         } else {
             model.addAttribute("msg", "用户名或密码错误！");
             model.addAttribute("url", "/login.jsp");
+        }
+        return "forward";
+    }
+
+    @RequestMapping("/adminLogin")
+    public String adminLogin(User user, Model model) {
+        ServiceResult result = iUserService.login(user);
+        if (result.succeed()) {
+            User user1= JSON.parseObject(JSON.toJSONString(result.getObject("result")),User.class);
+            session.setAttribute("user", user1);
+            model.addAttribute("msg", "登录成功！");
+            model.addAttribute("url", "/pages/back/admin/index");
+        } else {
+            model.addAttribute("msg", "用户名或密码错误！");
+            model.addAttribute("url", "/admin_login.jsp");
         }
         return "forward";
     }

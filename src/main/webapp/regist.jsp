@@ -14,6 +14,9 @@
         .facebook_area {
             display: none !important;
         }
+        #upload{
+            height: 50px;
+        }
     </style>
 </head>
 <body>
@@ -33,7 +36,7 @@
                             <div class="phone_step1">
                                 <div class="inputbg">
                                     <label class="labelbox" for="">
-                                        <input type="tel" name="phone" data-type="PH" placeholder="请输入手机号码">
+                                        <input autocomplete="off" type="tel" name="phone" data-type="PH" placeholder="请输入手机号码">
                                     </label>
                                 </div>
                                 <div class="err_tip">
@@ -41,7 +44,7 @@
                                 </div>
                                 <div class="inputbg">
                                     <label class="labelbox" for="">
-                                        <input type="tel" name="name" data-type="PH" placeholder="请输入用户名">
+                                        <input autocomplete="off" type="tel" name="name" data-type="PH" placeholder="请输入用户名">
                                     </label>
                                 </div>
                                 <div class="err_tip">
@@ -49,12 +52,12 @@
                                 </div>
                                 <div class="inputbg">
                                     <label class="labelbox" for="">
-                                        <input type="password" name="password" data-type="PH" placeholder="请输入密码">
+                                        <input autocomplete="off" type="password" name="password" data-type="PH" placeholder="请输入密码">
                                     </label>
                                 </div>
-                                <div class="inputbg">
-                                    <label class="labelbox" for="">
-                                        <input type="file" name="photo"  placeholder="请上传头像">
+                                <div class="inputbg" >
+                                    <label class="labelbox" for="" >
+                                        <input autocomplete="off" id="upload" type="file" name="photo"  placeholder="请上传头像">
                                     </label>
                                 </div>
                                 <div class="err_tip">
@@ -62,7 +65,7 @@
                                 </div>
                                 <div class="inputbg inputcode">
                                     <label class="labelbox" for="">
-                                        <input class="code" type="text" name="code" autocomplete="off"
+                                        <input autocomplete="off" class="code" type="text" name="code" autocomplete="off"
                                                placeholder="图片验证码">
                                     </label>
                                     <img alt="图片验证码" src="/ImageCode" title="看不清换一张" id="imageCode"

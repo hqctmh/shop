@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
@@ -22,6 +21,7 @@
     <script type="text/javascript" src="resources/bootstrap/js/bootstrap.js"></script>
     <link rel="stylesheet" href="resources/layui/css/layui.css">
     <script src="resources/layui/layui.js"></script>
+    <script src="resources/js/hmJs.js"></script>
     <script>
         function Trim(str) {
             return str.replace(/^\s+|\s+$/g, "");
@@ -44,27 +44,31 @@
             }
             return s;
         }
+
         $(function () {
             $("a[id*=message-]").each(function () {
-                var goodsId=this.id.split("-")[1];
+                var goodsId = this.id.split("-")[1];
                 $(this).click(function () {
-                    layui.use('layer', function(){
+                    layui.use('layer', function () {
                         var layer = layui.layer;
                         layer.prompt({
                             formType: 2,
-                            btn:'确定',
-                            offset:['182px','809px'],
+                            btn: '确定',
+                            offset: ['182px', '809px'],
                             title: '请输入商品评价',
                             area: ['400px', '200px'] //自定义文本域宽高
-                        }, function(value, index, elem){
-                            $.post("<%=basePath%>pages/front/member/message",{goodsId:goodsId,msg:value},function (data) {
-                                if(Trim(data)=="true"){
+                        }, function (value, index, elem) {
+                            $.post("<%=basePath%>pages/front/member/message", {
+                                goodsId: goodsId,
+                                msg: value
+                            }, function (data) {
+                                if (Trim(data) == "true") {
                                     alert("留言成功！");
                                     //window.location=""
-                                }else{
+                                } else {
                                     alert("留言失败！");
                                 }
-                            },"text");
+                            }, "text");
                             //alert(value); //得到value
                             layer.close(index);
                         });
@@ -100,28 +104,25 @@
         <c:if test="${user.userType==0}">
             <a class="${active=="my_index"?"actives":""}" href="<%=basePath%>pages/front/member/myIndex"><img
                     src="<%=basePath%>/resources/images/icon2.png"> 我的信息</a>
-            <a class="${active=="my_order"?"actives":""}"
-               href="<%=basePath%>pages/front/member/myAllOrder?type=myAllOrder"><img
+            <a class="${active=="my_order"?"actives":""}" href="<%=basePath%>pages/front/member/myAllOrder?type=myAllOrder"><img
                     src="<%=basePath%>/resources/images/icon2.png"> 我的订单</a>
-            <a class="${active=="my_return_order"?"actives":""}"
-               href="<%=basePath%>pages/front/member/findMyReturn?type=all_return"><img
-                    src="<%=basePath%>/resources/images/icon2.png"> 我的退货记录</a>
-            <a class="${active=="my_index"?"actives":""}" href="my_index.html"><img
+            <a class="${active=="my_return_order"?"actives":""}" href="<%=basePath%>pages/front/member/findMyReturn?type=all_return"><img src="<%=basePath%>/resources/images/icon2.png"> 我的退货记录</a>
+            <a class="${active=="my_address"?"actives":""}" href="<%=basePath%>pages/front/member/myAddress"><img
                     src="<%=basePath%>/resources/images/icon2.png"> 我的收货地址</a>
+            <a class="${active=="registStorePro"?"actives":""}" href="<%=basePath%>pages/front/member/registStorePro"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 申请店铺</a>
+            <a class="${active=="myApply"?"actives":""}" href="<%=basePath%>pages/front/member/myApply"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 我的申请</a>
         </c:if>
         <c:if test="${user.userType==1}">
-            <a href="<%=basePath%>pages/front/member/myIndex"><img src="<%=basePath%>/resources/images/icon2.png"> 我的信息</a>
-            <a href="my_smallstore.html"><img src="<%=basePath%>/resources/images/icon3.png"> 我的微店</a>
-            <a class="${active=="my_order"?"actives":""}"
-               href="<%=basePath%>pages/front/member/myAllOrder?type=myAllOrder"><img
-                    src="<%=basePath%>/resources/images/icon3.png"> 我的订单</a>
-            <a class="${active=="my_return_order"?"actives":""}"
-               href="<%=basePath%>pages/front/member/findMyReturn?type=all_return"><img
-                    src="<%=basePath%>/resources/images/icon2.png"> 我的退货记录</a>
+            <a class="${active=="my_index"?"actives":""}" href="<%=basePath%>pages/front/member/myIndex"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 我的信息</a>
+            <a class="${active=="my_order"?"actives":""}" href="<%=basePath%>pages/front/member/myAllOrder?type=myAllOrder"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 我的订单</a>
+            <a class="${active=="my_return_order"?"actives":""}" href="<%=basePath%>pages/front/member/findMyReturn?type=all_return"><img src="<%=basePath%>/resources/images/icon2.png"> 我的退货记录</a>
             <a class="${active=="add_goods"?"actives":""}" href="<%=basePath%>pages/front/member/addGoodsPro"><img
                     src="<%=basePath%>/resources/images/icon3.png"> 添加商品</a>
-            <a class="${active=="my_goods"?"actives":""}" href="<%=basePath%>pages/front/member/myGoods"><img
-                    src="<%=basePath%>/resources/images/icon3.png"> 我的商品</a>
+            <a class="${active=="my_goods"?"actives":""}" href="<%=basePath%>pages/front/member/myGoods"><img src="<%=basePath%>/resources/images/icon3.png"> 我的商品</a>
             <a class="${active=="statistics"?"actives":""}" href="<%=basePath%>pages/front/member/myStatistics"><img src="<%=basePath%>/resources/images/icon3.png"> 统计</a>
         </c:if>
 
@@ -188,9 +189,13 @@
                             <td>
                                 <div class="t2">x${model.detailAmount}</div>
                             </td>
-                            <td>
-                                <div class="t3"><a id="message-${model.goodsId}">留言</a></div>
-                            </td>
+
+                            <c:if test="${user.userType=='0'}">
+                                <td>
+                                    <div class="t3"><a id="message-${model.goodsId}">留言</a></div>
+                                </td>
+                            </c:if>
+
                         </tr>
                     </c:forEach>
                 </c:forEach>
@@ -239,22 +244,42 @@
                                                 "                    <th class=\"f4\"><div class=\"store\">" + ddo + "</div></th>\n" +
                                                 "                </tr>");
                                             for (var j = 0; j < modelList.length; j++) {
-                                                $("#orderTable").append("<tr>\n" +
-                                                    "                \t<td class=\"first-child\">\n" +
-                                                    "                        <div class=\"t1\">\n" +
-                                                    "                        \t<div class=\"lf od-pic\"><img src=\"<%=basePath%>/resources/upload/goodsPic/" + modelList[j].pic + "\"></div>\n" +
-                                                    "                            <div class=\"lf od-txt\">\n" +
-                                                    "                            \t" + modelList[j].goodsName + "</p>                    \n" +
-                                                    "                                <p class=\"color02\">下单时间：" + modelList[j].createTime + "</p>\n" +
-                                                    "                            </div>\n" +
-                                                    "                            <div class=\"clr\"></div>\n" +
-                                                    "                        </div>\n" +
-                                                    "                    </td>\n" +
-                                                    "                    <td class=\"color04\"><div class=\"d2\">￥" + modelList[j].price + "</div></td>\n" +
-                                                    "                    <td><div class=\"t2\">x" + modelList[j].detailAmount + "<div></td>\n" +
-                                                    "                    <td><div class=\"t3\"><a href=\"#\">留言</a><a href=\"#\">投诉</a></div></td>\n" +
-                                                    "                    \n" +
-                                                    "                </tr>");
+                                                var type = '';
+                                                type = "${user.userType}";
+                                                if (type == "0") {
+                                                    $("#orderTable").append("<tr>\n" +
+                                                        "                \t<td class=\"first-child\">\n" +
+                                                        "                        <div class=\"t1\">\n" +
+                                                        "                        \t<div class=\"lf od-pic\"><img src=\"<%=basePath%>/resources/upload/goodsPic/" + modelList[j].pic + "\"></div>\n" +
+                                                        "                            <div class=\"lf od-txt\">\n" +
+                                                        "                            \t" + modelList[j].goodsName + "</p>                    \n" +
+                                                        "                                <p class=\"color02\">下单时间：" + modelList[j].createTime + "</p>\n" +
+                                                        "                            </div>\n" +
+                                                        "                            <div class=\"clr\"></div>\n" +
+                                                        "                        </div>\n" +
+                                                        "                    </td>\n" +
+                                                        "                    <td class=\"color04\"><div class=\"d2\">￥" + modelList[j].price + "</div></td>\n" +
+                                                        "                    <td><div class=\"t2\">x" + modelList[j].detailAmount + "<div></td>\n" +
+                                                        "                    <td><div class=\"t3\"><a href=\"#\">留言</a></div></td>\n" +
+                                                        "                    \n" +
+                                                        "                </tr>");
+                                                } else {
+                                                    $("#orderTable").append("<tr>\n" +
+                                                        "                \t<td class=\"first-child\">\n" +
+                                                        "                        <div class=\"t1\">\n" +
+                                                        "                        \t<div class=\"lf od-pic\"><img src=\"<%=basePath%>/resources/upload/goodsPic/" + modelList[j].pic + "\"></div>\n" +
+                                                        "                            <div class=\"lf od-txt\">\n" +
+                                                        "                            \t" + modelList[j].goodsName + "</p>                    \n" +
+                                                        "                                <p class=\"color02\">下单时间：" + modelList[j].createTime + "</p>\n" +
+                                                        "                            </div>\n" +
+                                                        "                            <div class=\"clr\"></div>\n" +
+                                                        "                        </div>\n" +
+                                                        "                    </td>\n" +
+                                                        "                    <td class=\"color04\"><div class=\"d2\">￥" + modelList[j].price + "</div></td>\n" +
+                                                        "                    <td><div class=\"t2\">x" + modelList[j].detailAmount + "<div></td>\n" +
+                                                        "                    \n" +
+                                                        "                </tr>");
+                                                }
                                             }
                                         }
                                     }, "json");

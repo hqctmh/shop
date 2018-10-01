@@ -112,4 +112,11 @@ public interface IIndentService {
      * @return
      */
     ServiceResult myMessage(int pageNum,int pageSize,String storeId);
+
+    /**
+     *
+     * @param goodsId
+     * @return
+     */
+    ServiceResult findGoodsMessage(String goodsId);
 }

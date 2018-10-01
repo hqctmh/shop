@@ -33,6 +33,7 @@ public class IndexController extends AbstractController{
         ServiceResult rs=iGoodsService.findGodsForIndex();
         if(rs.succeed()){
             model.addAttribute("goodsMap",rs.getObject("result"));
+            System.out.println("heheda");
             model.addAttribute("active","index");
         }
 

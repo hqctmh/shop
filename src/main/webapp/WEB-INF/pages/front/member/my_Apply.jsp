@@ -20,106 +20,12 @@
     <link href="resources/css/mycss.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="resources/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="resources/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript" src="resources/js/echarts.common.min.js"></script>
     <link rel="stylesheet" href="resources/layui/css/layui.css">
     <script src="resources/layui/layui.js"></script>
     <script src="resources/js/hmJs.js"></script>
     <script>
-        function Trim(str)
-        {
-            return str.replace(/^\s+|\s+$/g,"");
-        }
-        function toDecimal2(x) {
-            var f = parseFloat(x);
-            if (isNaN(f)) {
-                return false;
-            }
-            var f = Math.round(x * 100) / 100;
-            var s = f.toString();
-            var rs = s.indexOf('.');
-            if (rs < 0) {
-                rs = s.length;
-                s += '.';
-            }
-            while (s.length <= rs + 2) {
-                s += '0';
-            }
-            return s;
-        }
-        $(function () {
-            var sell = echarts.init(document.getElementById('sell'),'light');
-            var goodsSell=echarts.init(document.getElementById('goodsSell'),'light');
-            option1 = {
-                xAxis: {
-                    type: 'category',
-                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-                },
-                yAxis: {
-                    type: 'value'
-                },
-                series: [{
-                    data: [${list[0]}, ${list[1]}, ${list[2]}, ${list[3]}, ${list[4]}, ${list[5]}, ${list[6]}],
-                    type: 'line',
-                    smooth: true
-                }]
-            };
-            option2 = {
-                tooltip: {
-                    trigger: 'item',
-                    formatter: "{a} <br/>{b}: {c} ({d}%)"
-                },
-                legend: {
-                    orient: 'vertical',
-                    x: 'left',
-                    data:['${GoodsList[0].name==null?0:GoodsList[0].name}','${GoodsList[1].name==null?0:GoodsList[1].name}','${GoodsList[2].name==null?0:GoodsList[2].name}','${GoodsList[3].name==null?0:GoodsList[3].name}','${GoodsList[4].name==null?0:GoodsList[4].name}','${GoodsList[5].name==null?0:GoodsList[5].name}']
-                },
-                series: [
-                    {
-                        name:'商品',
-                        type:'pie',
-                        radius: ['50%', '70%'],
-                        avoidLabelOverlap: false,
-                        label: {
-                            normal: {
-                                show: false,
-                                position: 'center'
-                            },
-                            emphasis: {
-                                show: true,
-                                textStyle: {
-                                    fontSize: '30',
-                                    fontWeight: 'bold'
-                                }
-                            }
-                        },
-                        labelLine: {
-                            normal: {
-                                show: false
-                            }
-                        },
-                        data:[
-                            {value:${GoodsList[0].price}, name:'${GoodsList[0].name}'},
-                            {value:${GoodsList[1].price}, name:'${GoodsList[1].name}'},
-                            {value:${GoodsList[2].price}, name:'${GoodsList[2].name}'},
-                            {value:${GoodsList[3].price}, name:'${GoodsList[3].name}'},
-                            {value:${GoodsList[4].price}, name:'${GoodsList[4].name}'},
-                            {value:${GoodsList[5].price}, name:'${GoodsList[5].name}'}
-                        ]
-                    }
-                ]
-            };
-            sell.setOption(option1);
-            goodsSell.setOption(option2);
-        })
+
     </script>
-    <style>
-        h1{
-            font-size: 30px;
-        }
-        .myslider{
-            height: 905px;
-        }
-    </style>
 </head>
 
 <body>
@@ -131,7 +37,7 @@
 
 
 <!--index content start-->
-<div class="row content" >
+<div class="row content">
     <div class="lf myslider">
         <div class="head_name">
             <p class="headimg"><img src="<%=basePath%>resources/upload/portrait/${user.pic}"></p>
@@ -167,18 +73,21 @@
 
     <div class="col-lg-10">
 
-        <div>
-            <h1>近七天销售额</h1>
-            <div id="sell" style="width: 600px;height:400px;">
-
-            </div>
-        </div>
-        <div>
-            <h1>商品销售统计</h1>
-            <div id="goodsSell" style="width: 600px;height:400px;">
-
-            </div>
-        </div>
+        <table class="table table-hover" id="goodsTable">
+            <tr>
+                <th>#</th>
+                <th>店铺名</th>
+                <th>申请状态</th>
+            </tr>
+            <%int i=1;%>
+            <c:forEach items="${applyList}" var="apply">
+            <tr>
+                <td><%=i++%></td>
+                <td>${apply.storeName}</td>
+                <td>${apply.status=="0"?"正在申请":"已拒绝"} </td>
+            </tr>
+            </c:forEach>
+        </table>
 
     </div>
 </div>

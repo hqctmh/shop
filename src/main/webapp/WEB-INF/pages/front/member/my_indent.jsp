@@ -185,12 +185,16 @@
     <div class="topnav">
         <div class="row">
             <ul class="lf">
-                <a href="denglu.html">登录</a><span class="line">|</span><a href="zhuce.html">免费注册</a>
+                <c:if test="${user==null}">
+                    <a href="${basePath}login.jsp">登录</a><span class="line">|</span><a href="${basePath}regist.jsp">免费注册</a>
+                </c:if>
+                <c:if test="${user!=null}">
+                    <a href="${basePath}logout">注销</a>
+                </c:if>
             </ul>
             <ul class="rf">
-                <a href="wodediingdan.html">我的订单 <i class="iconfont"></i></a><span class="line">|</span>
-                <a href="my_index.html">我的信息 <i class="iconfont"></i></a><span class="line">|</span>
-                <a href="gouwuche.html">购物车 <i class="iconcar"></i></a>
+                <a href="${basePath}pages/front/member/myIndex">我的信息 <i class="iconfont"></i></a><span class="line">|</span>
+                <a href="${basePath}pages/front/member/myShopCar">购物车 <i class="iconcar"></i></a>
                 <sapn class="line">|</sapn>
                 <a>全国热线:<span class="color03">400-6653-666</span></a>
             </ul>

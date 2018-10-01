@@ -209,9 +209,12 @@
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
-                <li class="active"><a href="#"><i class="fa fa-circle-o"></i>一级菜单</a></li>
-                <li class=""><a href="#"><i class="fa fa-circle-o"></i>一级菜单</a></li>
-                <li class=""><a href="#"><i class="fa fa-circle-o"></i>一级菜单</a></li>
+                <ul class="sidebar-menu">
+                    <li class="${active=="index"?"active":""}"><a href="<%=basePath%>pages/back/admin/index"><i class="fa fa-circle-o"></i>店铺销量统计</a></li>
+                    <li class="${active=="myUser"?"active":""}"><a href="<%=basePath%>pages/back/admin/myUser"><i class="fa fa-circle-o"></i>用户管理</a></li>
+                    <li class="${active=="myStore"?"active":""}"><a href="<%=basePath%>pages/back/admin/myStore"><i class="fa fa-circle-o"></i>店铺管理</a></li>
+                    <li class="${active=="myApply"?"active":""}"><a href="<%=basePath%>pages/back/admin/myApply"><i class="fa fa-circle-o"></i>店铺申请</a></li>
+                </ul>
 
             </ul>
         </section>

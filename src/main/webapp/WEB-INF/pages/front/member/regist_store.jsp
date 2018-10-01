@@ -5,7 +5,7 @@
     String basePath = request.getScheme() + "://"
             + request.getServerName() + ":" + request.getServerPort()
             + path + "/";
-    String addGoodsUrl=basePath+"pages/front/member/addGoods";
+    String registUrl=basePath+"pages/front/member/registStore";
 %>
 <!doctype html>
 <html>
@@ -20,6 +20,7 @@
     <link href="resources/css/mycss.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="resources/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="resources/bootstrap/js/bootstrap.js"></script>
+    <script src="resources/js/hmJs.js"></script>
     <script>
         $(function () {
             $("#item").change(function () {
@@ -36,6 +37,11 @@
             })
         })
     </script>
+    <style>
+        #title{
+            font-size: 30px;
+        }
+    </style>
 </head>
 
 <body>
@@ -55,48 +61,39 @@
         </div>
 
         <c:if test="${user.userType==0}">
-            <a class="${active=="my_index"?"actives":""}" href="<%=basePath%>pages/front/member/MyIndex"><img src="<%=basePath%>/resources/images/icon2.png"> 我的信息</a>
+            <a class="${active=="my_index"?"actives":""}" href="<%=basePath%>pages/front/member/myIndex"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 我的信息</a>
             <a class="${active=="my_order"?"actives":""}" href="<%=basePath%>pages/front/member/myAllOrder?type=myAllOrder"><img
                     src="<%=basePath%>/resources/images/icon2.png"> 我的订单</a>
             <a class="${active=="my_return_order"?"actives":""}" href="<%=basePath%>pages/front/member/findMyReturn?type=all_return"><img src="<%=basePath%>/resources/images/icon2.png"> 我的退货记录</a>
-            <a class="${active=="my_index"?"actives":""}" href="my_index.html"><img src="<%=basePath%>/resources/images/icon2.png"> 我的收货地址</a>
-            <a class="${active=="regist_store"?"actives":""}" href="my_index.html"><img src="<%=basePath%>/resources/images/icon2.png"> 申请店铺</a>
+            <a class="${active=="my_address"?"actives":""}" href="<%=basePath%>pages/front/member/myAddress"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 我的收货地址</a>
+            <a class="${active=="registStorePro"?"actives":""}" href="<%=basePath%>pages/front/member/registStorePro"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 申请店铺</a>
+            <a class="${active=="myApply"?"actives":""}" href="<%=basePath%>pages/front/member/myApply"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 我的申请</a>
         </c:if>
         <c:if test="${user.userType==1}">
-            <a class="${active=="my_index"?"actives":""}" href="<%=basePath%>pages/front/member/myIndex"><img src="<%=basePath%>/resources/images/icon2.png"> 我的信息</a>
-            <a href="my_smallstore.html"><img src="<%=basePath%>/resources/images/icon3.png"> 我的微店</a>
-            <a class="${active=="my_order"?"actives":""}" href="<%=basePath%>pages/front/member/myAllOrder?type=myAllOrder"><img src="<%=basePath%>/resources/images/icon3.png"> 我的订单</a>
+            <a class="${active=="my_index"?"actives":""}" href="<%=basePath%>pages/front/member/myIndex"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 我的信息</a>
+            <a class="${active=="my_order"?"actives":""}" href="<%=basePath%>pages/front/member/myAllOrder?type=myAllOrder"><img
+                    src="<%=basePath%>/resources/images/icon2.png"> 我的订单</a>
             <a class="${active=="my_return_order"?"actives":""}" href="<%=basePath%>pages/front/member/findMyReturn?type=all_return"><img src="<%=basePath%>/resources/images/icon2.png"> 我的退货记录</a>
-            <a class="${active=="add_goods"?"actives":""}" href="<%=basePath%>pages/front/member/addGoodsPro"><img src="<%=basePath%>/resources/images/icon3.png"> 添加商品</a>
+            <a class="${active=="add_goods"?"actives":""}" href="<%=basePath%>pages/front/member/addGoodsPro"><img
+                    src="<%=basePath%>/resources/images/icon3.png"> 添加商品</a>
             <a class="${active=="my_goods"?"actives":""}" href="<%=basePath%>pages/front/member/myGoods"><img src="<%=basePath%>/resources/images/icon3.png"> 我的商品</a>
             <a class="${active=="statistics"?"actives":""}" href="<%=basePath%>pages/front/member/myStatistics"><img src="<%=basePath%>/resources/images/icon3.png"> 统计</a>
         </c:if>
 
     </div>
     <div class="col-lg-8">
-        <table class="table table-hover" id="goodsTable">
-            <tr>
-                <th>#</th>
-                <th>店铺名</th>
-                <th>申请时间</th>
-                <th>库存</th>
-                <th>操作</th>
-            </tr>
-            <%int i=1;%>
-            <c:forEach items="${goodsList}" var="goods">
-                <tr>
-                    <td><%=i++%></td>
-                    <td>${goods.goodsName}</td>
-                    <td id="price-${goods.id}">${goods.price}</td>
-                    <td id="count-${goods.id}">${goods.count}</td>
-                    <td class="operation">
-                        <a id="updatePrice-${goods.id}">修改价格</a>
-                        <a id="updateCount-${goods.id}">进货</a>
-                        <a id="delGoods-${goods.id}">删除商品</a>
-                    </td>
-                </tr>
-            </c:forEach>
-        </table>
+        <form method="post" action="<%=registUrl%>">
+            <div class="form-group">
+                <label for="storeName">请输入店铺名称</label>
+                <input autocomplete="off" type="text" name="storeName" class="form-control" id="storeName" placeholder="店铺名称">
+            </div>
+            <button type="submit" class="btn btn-default">提交申请</button>
+        </form>
     </div>
 </div>
 <!--index content end-->

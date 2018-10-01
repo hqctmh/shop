@@ -2239,3 +2239,134 @@ Caused by: java.lang.NumberFormatException: For input string: "${druid.maxActive
 2018-06-05 11:41:49 [ INFO] - result -------->9139.70
 2018-06-05 11:41:49 [ INFO] - Closing org.springframework.context.support.GenericApplicationContext@544fe44c: startup date [Tue Jun 05 11:41:39 CST 2018]; root of context hierarchy
 2018-06-05 11:41:49 [ INFO] - {dataSource-1} closed
+2018-08-30 11:38:36 [ INFO] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@59fa1d9b, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@28d25987, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4501b7af, org.springframework.test.context.support.DirtiesContextTestExecutionListener@523884b2]
+2018-08-30 11:38:36 [ INFO] - Loading XML bean definitions from class path resource [spring-context.xml]
+2018-08-30 11:38:37 [ INFO] - Loading XML bean definitions from class path resource [spring-mvc.xml]
+2018-08-30 11:38:37 [ INFO] - Overriding bean definition for bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping' with a different definition: replacing [Root bean: class [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+2018-08-30 11:38:37 [ INFO] - Overriding bean definition for bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter' with a different definition: replacing [Root bean: class [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+2018-08-30 11:38:37 [ INFO] - Overriding bean definition for bean 'mvcUriComponentsContributor' with a different definition: replacing [Root bean: class [org.springframework.web.servlet.config.AnnotationDrivenBeanDefinitionParser$CompositeUriComponentsContributorFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.web.servlet.config.AnnotationDrivenBeanDefinitionParser$CompositeUriComponentsContributorFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+2018-08-30 11:38:37 [ INFO] - Loading XML bean definitions from class path resource [spring-mybatis.xml]
+2018-08-30 11:38:37 [ INFO] - Loading XML bean definitions from class path resource [spring-cache.xml]
+2018-08-30 11:38:39 [ INFO] - Refreshing org.springframework.context.support.GenericApplicationContext@3c0f93f1: startup date [Thu Aug 30 11:38:39 CST 2018]; root of context hierarchy
+2018-08-30 11:38:39 [ INFO] - Loading properties file from class path resource [config.properties]
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/back/admin/index]}" onto public java.lang.String cn.mh.controller.AdminController.index(org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/back/admin/updateApplyStatus]}" onto public java.lang.String cn.mh.controller.AdminController.updateApplyStatus(org.springframework.ui.Model,java.lang.String,java.lang.String)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/back/admin/adminStatistics],produces=[application/json;charset=utf-8]}" onto public java.lang.String cn.mh.controller.AdminController.adminStatistics()
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/back/admin/findUser],produces=[application/json;charset=utf-8]}" onto public java.lang.String cn.mh.controller.AdminController.findUser(java.lang.String)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/back/admin/lockStore]}" onto public java.lang.String cn.mh.controller.AdminController.lockStore(java.lang.String)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/back/admin/lockUser],produces=[application/json;charset=utf-8]}" onto public java.lang.String cn.mh.controller.AdminController.lockUser(java.lang.String)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/back/admin/myStore]}" onto public java.lang.String cn.mh.controller.AdminController.myStore(org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/back/admin/chognzhiUser],produces=[application/json;charset=utf-8]}" onto public java.lang.String cn.mh.controller.AdminController.chognzhiUser(java.lang.String,java.lang.String)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/back/admin/myUser]}" onto public java.lang.String cn.mh.controller.AdminController.myUser(org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/back/admin/myApply]}" onto public java.lang.String cn.mh.controller.AdminController.myApply(org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/back/admin/findStore],produces=[application/json;charset=utf-8]}" onto public java.lang.String cn.mh.controller.AdminController.findStore(java.lang.String)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/city/findCityByPid],produces=[application/json;charset=utf-8]}" onto public java.lang.String cn.mh.controller.CityController.findCityByPid(java.lang.String)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/Goods/findMyGoodsForPage],produces=[application/json;charset=utf-8]}" onto public java.lang.String cn.mh.controller.GoodsController.findMyGoodsForPage(int)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/Goods/allGoods]}" onto public java.lang.String cn.mh.controller.GoodsController.allGoods(org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/Goods/findGoodsForPage],produces=[application/json;charset=utf-8]}" onto public java.lang.String cn.mh.controller.GoodsController.findGoodsForPage(int)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/Goods/goodsDetail]}" onto public java.lang.String cn.mh.controller.GoodsController.goodsDetail(org.springframework.ui.Model,java.lang.String)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/]}" onto public java.lang.String cn.mh.controller.IndexController.index(org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/item/findItem],produces=[application/json;charset=utf-8]}" onto public java.lang.String cn.mh.controller.ItemController.findItem()
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/item/findSubItem],produces=[application/json;charset=utf-8]}" onto public java.lang.String cn.mh.controller.ItemController.findSubItem(java.lang.String)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/register]}" onto public java.lang.String cn.mh.controller.LoginController.register(cn.mh.entity.User,java.lang.String,org.springframework.web.multipart.MultipartFile,org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/login]}" onto public java.lang.String cn.mh.controller.LoginController.login(cn.mh.entity.User,org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/logout]}" onto public java.lang.String cn.mh.controller.LoginController.logout(org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/adminLogin]}" onto public java.lang.String cn.mh.controller.LoginController.adminLogin(cn.mh.entity.User,org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/message]}" onto public java.lang.String cn.mh.controller.MemberController.message(java.lang.String,java.lang.String)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/myAllOrderForPage],produces=[application/json;charset=utf-8]}" onto public java.lang.String cn.mh.controller.MemberController.myAllOrderForPage(java.lang.String,int)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/updateStatus]}" onto public java.lang.String cn.mh.controller.MemberController.updateIndentStatus(org.springframework.ui.Model,java.lang.String,java.lang.String)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/findMyReturnForPage],produces=[application/json;charset=utf-8]}" onto public java.lang.String cn.mh.controller.MemberController.findMyReturnForPage(int,java.lang.String)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/updateReturnStatus]}" onto public java.lang.String cn.mh.controller.MemberController.updateReturnStatus(org.springframework.ui.Model,java.lang.String,java.lang.String)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/myApply]}" onto public java.lang.String cn.mh.controller.MemberController.myApply(org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/addGoodsPro]}" onto public java.lang.String cn.mh.controller.MemberController.addGoodsPro(org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/addGoods]}" onto public java.lang.String cn.mh.controller.MemberController.addGoods(org.springframework.ui.Model,cn.mh.entity.Goods,org.springframework.web.multipart.MultipartFile)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/myIndex]}" onto public java.lang.String cn.mh.controller.MemberController.myIndex(org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/myGoods]}" onto public java.lang.String cn.mh.controller.MemberController.myGoods(org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/updateGoods]}" onto public java.lang.String cn.mh.controller.MemberController.updateGoods(cn.mh.entity.Goods)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/myAddress]}" onto public java.lang.String cn.mh.controller.MemberController.myAddress(org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/createIndentPro]}" onto public java.lang.String cn.mh.controller.MemberController.createIndentPro(java.lang.String,org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/updateShopCar]}" onto public java.lang.String cn.mh.controller.MemberController.updateShopCar(cn.mh.entity.ShopCar)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/myShopCar]}" onto public java.lang.String cn.mh.controller.MemberController.findShopCar(org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/myStatistics]}" onto public java.lang.String cn.mh.controller.MemberController.myStatistics(org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/payByBtn]}" onto public java.lang.String cn.mh.controller.MemberController.payByBtn(org.springframework.ui.Model,java.lang.String,java.lang.String)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/delAddress]}" onto public java.lang.String cn.mh.controller.MemberController.delAddress(java.lang.String,org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/findMyReturn]}" onto public java.lang.String cn.mh.controller.MemberController.findMyReturn(org.springframework.ui.Model,java.lang.String)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/myMessageForPage],produces=[application/json;charset=utf-8]}" onto public java.lang.String cn.mh.controller.MemberController.myMessageForPage(int,org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/addAddress]}" onto public java.lang.String cn.mh.controller.MemberController.addAddress(org.springframework.ui.Model,cn.mh.entity.Address)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/addAddressPro]}" onto public java.lang.String cn.mh.controller.MemberController.addAddressPro(org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/delShopCar]}" onto public java.lang.String cn.mh.controller.MemberController.delShopCar(java.lang.String)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/updateAddressPro]}" onto public java.lang.String cn.mh.controller.MemberController.updateAddressPro(java.lang.String,org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/pay],produces=[application/json;charset=utf-8]}" onto public java.lang.String cn.mh.controller.MemberController.pay(java.lang.String)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/myAllOrder]}" onto public java.lang.String cn.mh.controller.MemberController.myAllOrder(org.springframework.ui.Model,java.lang.String)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/myMessage]}" onto public java.lang.String cn.mh.controller.MemberController.myMessage(org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/registStore]}" onto public java.lang.String cn.mh.controller.MemberController.registStore(java.lang.String,org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/addShopCar],produces=[application/json;charset=utf-8]}" onto public java.lang.String cn.mh.controller.MemberController.addShopCar(cn.mh.entity.ShopCar)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/registStorePro]}" onto public java.lang.String cn.mh.controller.MemberController.registStorePro(org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/payByBtnPro]}" onto public java.lang.String cn.mh.controller.MemberController.payByBtnPro(org.springframework.ui.Model,java.lang.String)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/updateAddress]}" onto public java.lang.String cn.mh.controller.MemberController.updateAddress(cn.mh.entity.Address,org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/pages/front/member/createIndent]}" onto public java.lang.String cn.mh.controller.MemberController.createIndent(java.lang.String)
+2018-08-30 11:38:40 [ INFO] - Mapped "{[/page]}" onto public java.lang.String cn.mh.controller.PageController.testPage(org.springframework.ui.Model)
+2018-08-30 11:38:40 [ INFO] - Looking for @ControllerAdvice: org.springframework.context.support.GenericApplicationContext@3c0f93f1: startup date [Thu Aug 30 11:38:39 CST 2018]; root of context hierarchy
+2018-08-30 11:38:40 [ INFO] - Looking for @ControllerAdvice: org.springframework.context.support.GenericApplicationContext@3c0f93f1: startup date [Thu Aug 30 11:38:39 CST 2018]; root of context hierarchy
+2018-08-30 11:38:40 [ INFO] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2018-08-30 11:38:41 [ INFO] - {dataSource-1} inited
+2018-08-30 11:38:42 [ WARN] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'adminController': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private javax.servlet.http.HttpSession cn.mh.controller.AdminController.session; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [javax.servlet.http.HttpSession] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2018-08-30 11:38:42 [ INFO] - {dataSource-1} closed
+2018-08-30 11:38:42 [ERROR] - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4501b7af] to prepare test instance [UserTest@285c08c8]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:228)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:230)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:249)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:89)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:193)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'adminController': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private javax.servlet.http.HttpSession cn.mh.controller.AdminController.session; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [javax.servlet.http.HttpSession] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1214)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:543)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:772)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:839)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:538)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:125)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:109)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:261)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116)
+	... 24 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private javax.servlet.http.HttpSession cn.mh.controller.AdminController.session; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [javax.servlet.http.HttpSession] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:573)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:331)
+	... 40 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [javax.servlet.http.HttpSession] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:1373)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1119)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1014)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:545)
+	... 42 more
+2018-08-30 13:49:37 [ INFO] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@59fa1d9b, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@28d25987, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4501b7af, org.springframework.test.context.support.DirtiesContextTestExecutionListener@523884b2]

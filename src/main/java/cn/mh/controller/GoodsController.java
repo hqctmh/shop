@@ -1,10 +1,12 @@
 package cn.mh.controller;
 
 import cn.mh.api.IGoodsService;
+import cn.mh.api.IIndentService;
 import cn.mh.api.IItemService;
 import cn.mh.controller.abs.AbstractController;
 import cn.mh.entity.Goods;
 import cn.mh.entity.Item;
+import cn.mh.util.Md5Util;
 import cn.mh.util.ServiceResult;
 import cn.mh.util.StringUtil;
 import com.alibaba.fastjson.JSON;
@@ -33,6 +35,8 @@ public class GoodsController extends AbstractController{
     private HttpSession session;
     @Autowired
     private HttpServletRequest request;
+    @Autowired
+    private IIndentService iIndentService;
 
     @ResponseBody
     @RequestMapping(value = "/findMyGoodsForPage",produces = "application/json; charset=utf-8")
@@ -114,6 +118,10 @@ public class GoodsController extends AbstractController{
         ServiceResult rs=iGoodsService.findGoodsById(goodsId);
         if(rs.succeed()){
             model.addAttribute("goods",rs.getObject("result"));
+        }
+        rs=iIndentService.findGoodsMessage(goodsId);
+        if(rs.succeed()){
+            model.addAttribute("message",rs.getObject("result"));
         }
         return "front/goods/goods_detail";
     }

@@ -88,8 +88,7 @@
         </div>
         <!-- 其他登录方式 e -->
         <div class="n_links_area" id="custom_display_64">
-            <a class="outer-link" href="/regist.jsp">注册帐号</a><span>|</span>
-            <a class="outer-link" href="#">忘记密码？</a>
+            <a class="outer-link" href="${basePath}regist.jsp">注册帐号</a>
         </div>
     </div>
 

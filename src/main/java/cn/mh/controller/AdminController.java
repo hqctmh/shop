@@ -1,6 +1,7 @@
 package cn.mh.controller;
 
 import cn.mh.api.IStatisticsService;
+import cn.mh.api.IStoreApplyService;
 import cn.mh.api.IStoreService;
 import cn.mh.api.IUserService;
 import cn.mh.controller.abs.AbstractController;
@@ -23,6 +24,8 @@ public class AdminController extends AbstractController {
     @Autowired
     private IUserService iUserService;
     @Autowired
+    private IStoreApplyService iStoreApplyService;
+    @Autowired
     private HttpSession session;
     @Autowired
     private IStatisticsService iStatisticsService;
@@ -30,35 +33,16 @@ public class AdminController extends AbstractController {
     private IStoreService iStoreService;
 
 
-
-
-    @RequestMapping("loginPro")
-    public String loginPro(){
-        return "back/login";
-    }
-    @RequestMapping("login")
-    public String login(User user,Model model){
-        ServiceResult result = iUserService.login(user);
-        if(result.succeed()){
-            User user1= JSON.parseObject(JSON.toJSONString(result.getObject("result")),User.class);
-            session.setAttribute("user", user1);
-            model.addAttribute("msg", "登录成功！");
-            model.addAttribute("url", "/pages/back/admin/index");
-        } else {
-            model.addAttribute("msg", "用户名或密码错误！");
-            model.addAttribute("url", "/pages/back/admin/loginPro");
-        }
-        return "back/index";
-    }
     @RequestMapping("index")
-    public String index(){
-
+    public String index(Model model){
+        model.addAttribute("active", "index");
         return "back/index";
     }
 
     @ResponseBody
     @RequestMapping(value = "adminStatistics",produces = "application/json; charset=utf-8")
     public String adminStatistics(){
+
         ServiceResult rs=iStatisticsService.statisticsByAdmin();
         if(rs.succeed()){
             return JSON.toJSONString(rs.getObject("result"));
@@ -68,6 +52,7 @@ public class AdminController extends AbstractController {
 
     @RequestMapping("myUser")
     public String myUser(Model model){
+        model.addAttribute("active", "myUser");
         ServiceResult result=iUserService.findAllUser();
         if(result.succeed()){
             model.addAttribute("UserList",result.getObject("result"));
@@ -121,11 +106,40 @@ public class AdminController extends AbstractController {
 
     @RequestMapping("myStore")
     public String myStore(Model model){
+        model.addAttribute("active", "myStore");
         ServiceResult result=iStoreService.findStoreModel("");
         if(result.succeed()){
             model.addAttribute("StoreList",result.getObject("result"));
         }
         return "back/myStore";
+    }
+
+    @RequestMapping("myApply")
+    public String myApply(Model model){
+        model.addAttribute("active", "myApply");
+        ServiceResult result=iStoreApplyService.findApplyByAdmin();
+        if(result.succeed()){
+            model.addAttribute("applyList",result.getObject("result"));
+        }
+        return "back/myApply";
+    }
+
+    @RequestMapping("updateApplyStatus")
+    public String updateApplyStatus(Model model,String status,String applyId){
+        ServiceResult result=null;
+        if(StringUtil.equals(status,"1")){
+            result=iStoreApplyService.agreeApply(applyId);
+        }else{
+            result=iStoreApplyService.disAgreeApply(applyId);
+        }
+        if (result.succeed()) {
+            model.addAttribute("msg", "操作成功！");
+            model.addAttribute("url", "/pages/back/admin/index");
+        } else {
+            model.addAttribute("msg", "操作失败！");
+            model.addAttribute("url", "/pages/back/admin/index");
+        }
+        return "forward";
     }
 
     @ResponseBody
